@@ -4,30 +4,52 @@
 body {
     margin: 0;
     padding: 0;
-}
-#aboveFold {
-    width: 100%;
-    height: 650px;
-    overflow: hidden;
-
     background-image: url('../img/background_code.jpeg');
     background-repeat: repeat;
 }
-#ATFTint {
-    z-index: 1;
-    background: rgba(74, 189, 172, 0.7);    
-
-    height: 100%;
+#BodyTint {
+    position: absolute;
     width: 100%;
+    height: 100%;
+
+    background: rgba(74, 189, 172, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #ATFTitle {
-    width: 80%;
-    top: 20%;
+    position: relative;
     font-family: 'Sigmar One', cursive;
     font-size: 80px;
+
 }
-#belowFold {
-    width: 100%;
-    height: 650px;
-    background-color: #DFDCE3;
+
+
+/* SIDE BAR NAVIGATION */
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px}
+    .sidenav a {font-size: 18px}
 }

@@ -1,0 +1,97 @@
+#project-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+#project-list li {
+    display: inline-block;
+    padding: 4px;
+    margin: 4px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+#project-list a {
+    color: inherit;
+    text-decoration: none;
+}
+#project-list li:hover {
+    color: #BFBFBF;
+    border-color: #BFBFBF;
+}
+#project-list a:hover {
+    color: #BFBFBF;
+}
+
+.project {
+    width: 70%;
+    border: 1px solid white;
+}
+.project .screenshot {
+    position: relative;
+    height: 100px;
+    width: auto;
+}
+.project-TT {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.project-TT .Desc-TT {
+    visibility: hidden;
+    width: 500px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+
+    top: 100%;
+    left: 0%;
+    margin-left: -60px;
+}
+.project-TT:hover .Desc-TT {
+    visibility: visible;
+}
+.project-TT .Desc-TT::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+.project-TT .Image-TT {
+    visibility: hidden;
+    width: 500px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+
+    top: 100%;
+    left: 100%;
+    margin-left: -60px;
+}
+.project-TT:hover .Image-TT {
+    visibility: visible;
+}
+.project-TT .Image-TT::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}

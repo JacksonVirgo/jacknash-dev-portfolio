@@ -1,2 +1,0 @@
-# jacknash dev portfolio
- 

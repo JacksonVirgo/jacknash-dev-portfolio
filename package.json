@@ -1,0 +1,25 @@
+{
+	"name": "jacknash-dev-portfolio",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node backend/index.js",
+		"test": "nodemon backend/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JacksonVirgo/jacknash-dev-portfolio.git"
+	},
+	"author": "Jack Nash",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/JacksonVirgo/jacknash-dev-portfolio/issues"
+	},
+	"homepage": "https://github.com/JacksonVirgo/jacknash-dev-portfolio#readme",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"path": "^0.12.7"
+	}
+}

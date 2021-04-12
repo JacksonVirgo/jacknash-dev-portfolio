@@ -1,24 +1,28 @@
 import React from 'react';
 import Form from '../forms/Form';
 import server from '../../config/server.js';
+import { sendContactEmail } from '../../scripts/fetch';
 
 class Contact extends React.Component {
+	state = {
+		progress: '',
+	};
 	onSubmit(e) {
-		const { sender, email, message } = e.target;
-		const result = JSON.stringify({ sender: sender.value, email: email.value, message: message.value });
-		fetch(`${server.url}/api/contact`, {
-			method: 'POST',
-			body: result,
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				if (res.status === 'success') console.log('Message Sent');
-				else if (res.status === 'fail') console.log('Message Failed to Send');
-			});
+		const { sender, email, message, pot } = e.target;
+		if (!pot.value) {
+			const result = JSON.stringify({ sender: sender.value, email: email.value, message: message.value });
+			sendContactEmail(result, this.contactResponse.bind(this));
+		} else {
+			this.setState({ progress: 'Form Data Invalid' });
+		}
+	}
+	contactResponse(e) {
+		const { data } = e;
+		if (data.response === 200) {
+			this.setState({ progress: 'Message Sent!' });
+		} else if (data.response === 500) {
+			this.setState({ progress: 'Message Failed!' });
+		}
 	}
 	render() {
 		return (
@@ -33,9 +37,10 @@ class Contact extends React.Component {
 						{ name: 'sender', label: 'Sender Name', type: 'text' },
 						{ name: 'email', label: 'Your Email', type: 'text' },
 						{ name: 'message', label: 'Message', type: 'area' },
+						{ name: 'pot', label: 'HoneyPot', type: 'text', isHoney: true },
 					]}
 				/>
-				<br />
+				<span>{this.state.progress}</span>
 			</div>
 		);
 	}

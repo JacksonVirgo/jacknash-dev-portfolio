@@ -19,7 +19,7 @@ class Form extends React.Component {
 		return (
 			<form onSubmit={this.defaultOnSubmit.bind(this)}>
 				{this.children.map((c, i) => {
-					return <Field key={c.name} child={<Input name={c.name} label={c.label} type={c.type} />} />;
+					return <Field key={c.name} isHoney={c.isHoney} child={<Input name={c.name} label={c.label} type={c.type} />} />;
 				})}
 				<input type='submit' value={this.submitText} />
 			</form>

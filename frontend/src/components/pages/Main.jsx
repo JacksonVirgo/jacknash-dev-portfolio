@@ -11,6 +11,7 @@ export default function Main() {
 				buttons={[
 					{ href: '/resume', text: 'Resume [pdf]', type: 'link' },
 					{ href: '/history', text: 'Work History', type: 'link' },
+					{ href: '/contact', text: 'Contact', type: 'link' },
 				]}
 			/>
 		</div>

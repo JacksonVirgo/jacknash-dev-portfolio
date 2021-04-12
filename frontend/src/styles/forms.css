@@ -1,0 +1,21 @@
+form {
+	box-sizing: border-box;
+	width: 75%;
+	margin: 0 auto;
+}
+form :is(label, input, textarea) {
+	margin: 0 auto;
+	width: 60%;
+	display: block;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 2px;
+}
+[type='submit'] {
+	margin-top: 10px;
+	border-radius: 5px;
+	width: 20%;
+}
+form textarea {
+	height: 100px;
+}

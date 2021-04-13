@@ -9,10 +9,12 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 router.use(cors());
 router.route('/contact').post((req, res) => {
-	const { sender, email, message } = req.body;
+	console.log(req.body, JSON.stringify(req.body));
+	const { sender, email, message } = JSON.parse(JSON.stringify(req.body));
 	try {
 		let transporter = nodemailer.createTransport({
-			service: 'gmail',
+			host: 'smtp.googlemail.com',
+			port: 465,
 			auth: {
 				user: process.env.EMAIL_USER,
 				pass: process.env.EMAIL_PASS,
@@ -25,10 +27,9 @@ router.route('/contact').post((req, res) => {
 			text: `${sender} at ${email} sent... \n\n${message}`,
 		};
 		transporter.sendMail(mailOptions, (err, info) => {
-			if (err) console.log(err);
-			else console.log(`Email Sent: ${info.response}`);
+			if (err) res.send({ response: 500, data: err });
+			else res.send({ response: 200, data: info.response });
 		});
-		res.send({ response: 200 });
 	} catch (e) {
 		res.send({ response: 500 });
 	}

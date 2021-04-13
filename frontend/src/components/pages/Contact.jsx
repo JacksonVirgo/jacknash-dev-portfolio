@@ -9,9 +9,9 @@ class Contact extends React.Component {
 	};
 	onSubmit(e) {
 		const { sender, email, message, pot } = e.target;
+		const data = { sender: sender.value, email: email.value, message: message.value };
 		if (!pot.value) {
-			const result = JSON.stringify({ sender: sender.value, email: email.value, message: message.value });
-			sendContactEmail(result, this.contactResponse.bind(this));
+			sendContactEmail(data, this.contactResponse.bind(this));
 		} else {
 			this.setState({ progress: 'Form Data Invalid' });
 		}
@@ -22,6 +22,7 @@ class Contact extends React.Component {
 			this.setState({ progress: 'Message Sent!' });
 		} else if (data.response === 500) {
 			this.setState({ progress: 'Message Failed!' });
+			console.log(data.data);
 		}
 	}
 	render() {

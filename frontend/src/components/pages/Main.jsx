@@ -6,6 +6,7 @@ export default function Main() {
 		<div>
 			<h1>Jack Nash</h1>
 			<h2>Web Development</h2>
+			<p>Site Under Heavy Development</p>
 			<br />
 			<HorizontalButtonList
 				buttons={[

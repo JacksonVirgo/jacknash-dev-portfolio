@@ -1,6 +1,6 @@
 import React from 'react';
 import HorizontalButtonList from '../lists/HorizontalButtonList';
-
+import server from '../../config/server';
 export default function Main() {
 	return (
 		<div>
@@ -10,7 +10,7 @@ export default function Main() {
 			<br />
 			<HorizontalButtonList
 				buttons={[
-					{ href: `http://127.0.0.1:5000/api/resume`, text: 'Resume [pdf]', type: 'link' },
+					{ href: `${server.url}/api/resume`, text: 'Resume [pdf]', type: 'link' },
 					{ href: '/history', text: 'Work History', type: 'link' },
 					{ href: '/contact', text: 'Contact', type: 'link' },
 				]}

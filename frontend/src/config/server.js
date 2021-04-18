@@ -1,4 +1,4 @@
 const server = {
-	url: 'http://127.0.0.1:5000',
+	url: 'https://jacknash.dev',
 };
 export default server;

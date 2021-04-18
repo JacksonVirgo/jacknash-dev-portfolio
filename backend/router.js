@@ -1,13 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-
+const path = require('path');
 const nodemailer = require('nodemailer');
-const { response } = require('express');
+const fs = require('fs');
 
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 router.use(cors());
+router.route('/resume').get((req, res) => {
+	const pdf = path.join(__dirname, '..', 'files', 'resume.pdf');
+	fs.readFile(pdf, (err, data) => {
+		res.contentType('application/pdf');
+		res.send(data);
+	});
+});
 router.route('/contact').post((req, res) => {
 	console.log(req.body, JSON.stringify(req.body));
 	const { sender, email, message } = JSON.parse(JSON.stringify(req.body));

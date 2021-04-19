@@ -1,5 +1,16 @@
-const server = {
-	url: process.env.SERVER_URL || 'http://127.0.0.1:5000',
+const LOCAL_URL = 'http://localhost:5000';
+
+const getServerURL = () => {
+	const { hostname, protocol } = window.location;
+	let result = '';
+	if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '') {
+		result = LOCAL_URL;
+	} else {
+		result = `${protocol}//${hostname}`;
+	}
+	console.log('Server URL:', result);
+	return result;
 };
-console.log(server);
-export default server;
+export default {
+	url: getServerURL(),
+};

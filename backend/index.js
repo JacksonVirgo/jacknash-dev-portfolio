@@ -13,7 +13,6 @@ if (process.env.running == 'production') {
 	require('dotenv').config();
 }
 
-console.log(process.env.SERVER_URL);
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
 	console.log(`Server listening on port ${PORT}`);

@@ -16,15 +16,19 @@ router.route('/resume').get((req, res) => {
 	});
 });
 router.route('/contact').post((req, res) => {
-	console.log(req.body, JSON.stringify(req.body));
 	const { sender, email, message } = JSON.parse(JSON.stringify(req.body));
 	try {
 		let transporter = nodemailer.createTransport({
-			host: 'smtp.googlemail.com',
+			host: 'mail.privatemail.com',
 			port: 465,
 			auth: {
 				user: process.env.EMAIL_USER,
 				pass: process.env.EMAIL_PASS,
+			},
+			dkim: {
+				domainName: 'jacknash.dev',
+				keySelector: 'default',
+				privateKey: process.env.NOREPLY_PK,
 			},
 		});
 		let mailOptions = {

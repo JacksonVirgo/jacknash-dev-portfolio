@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from '../forms/Form';
-import server from '../../config/server.js';
 import { sendContactEmail } from '../../scripts/fetch';
 
 class Contact extends React.Component {

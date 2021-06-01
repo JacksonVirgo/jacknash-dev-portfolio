@@ -8,13 +8,6 @@ const fs = require('fs');
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 router.use(cors());
-router.route('/resume').get((req, res) => {
-	const pdf = path.join(__dirname, '..', 'files', 'resume.pdf');
-	fs.readFile(pdf, (err, data) => {
-		res.contentType('application/pdf');
-		res.send(data);
-	});
-});
 router.route('/contact').post((req, res) => {
 	const { sender, email, message } = JSON.parse(JSON.stringify(req.body));
 	try {

@@ -10,7 +10,7 @@ export default function Main() {
 			<br />
 			<HorizontalButtonList
 				buttons={[
-					{ href: `${server.url}/api/resume`, text: 'Resume [pdf]', type: 'link' },
+					{ href: `${server.url}/files/resume`, text: 'Resume [pdf]', type: 'link' },
 					{ href: '/history', text: 'Work History', type: 'link' },
 					{ href: '/contact', text: 'Contact', type: 'link' },
 				]}

@@ -18,6 +18,10 @@ body {
 	font-family: sans-serif;
 	text-align: center;
 }
+
+img {
+	width: 16px;
+}
 main {
 	height: calc(100vh - 128px);
 	width: calc(100vw - 128px);
@@ -91,7 +95,7 @@ section > * {
 	color: var(--clr-primary-2);
 	border: 3px solid var(--clr-primary-1);
 }
-.left > *:hover {
+.left > *:not(.large):hover {
 	background-color: var(--clr-primary-2);
 	color: var(--clr-primary-1);
 	border: 3px solid var(--clr-primary-1);
@@ -122,7 +126,7 @@ section > * {
 .left:hover + .overlayLeft {
 	display: inline-block;
 }
-.right > *:hover {
+.right > *:not(.large):hover {
 	background-color: var(--clr-primary-1);
 	color: var(--clr-primary-2);
 	border: 3px solid var(--clr-primary-2);
@@ -179,6 +183,37 @@ h2 {
 	margin: 100px;
 	color: var(--clr-primary-1);
 	font-weight: 1000;
+}
+.left .projectLink {
+	display: inline-block;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid var(--clr-primary-2);
+}
+.left .projectLink:hover {
+	background-color: var(--clr-primary-2);
+	color: var(--clr-primary-1);
+	cursor: grab;
+}
+.left .projectLink:hover img {
+	filter: invert(1);
+}
+.right .projectLink {
+	display: inline-block;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid var(--clr-primary-1);
+}
+.right .projectLink:hover {
+	background-color: var(--clr-primary-1);
+	color: var(--clr-primary-2);
+	cursor: grab;
+}
+.right .projectLink img {
+	filter: invert(1);
+}
+.right .projectLink:hover img {
+	filter: invert(0);
 }
 
 @media screen and (max-width: 655px) {

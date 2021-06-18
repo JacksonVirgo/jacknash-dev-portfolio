@@ -87,7 +87,7 @@ section > * {
 	display: flex;
 	flex-flow: row-reverse;
 }
-.left > * {
+.left > *:not(.contact) {
 	width: clamp(32px, 75%, 128px);
 	padding: 3px;
 	margin: 5px;
@@ -95,12 +95,44 @@ section > * {
 	color: var(--clr-primary-2);
 	border: 3px solid var(--clr-primary-1);
 }
-.left > *:not(.large):hover {
+.left > *:not(.large, .contact):hover {
 	background-color: var(--clr-primary-2);
 	color: var(--clr-primary-1);
 	border: 3px solid var(--clr-primary-1);
-	cursor: grab;
+	cursor: pointer;
 }
+
+.contact {
+	width: 32px;
+	height: 32px;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contact img {
+	width: 100%;
+	height: 100%;
+}
+.contact:hover {
+	cursor: pointer;
+	background-color: var(--clr-primary-2);
+}
+.contact:hover img {
+	filter: invert(1);
+}
+.left .contact img {
+	filter: invert(1);
+}
+.left .contact:hover {
+	background-color: var(--clr-primary-1);
+}
+.left .contact:hover img {
+	filter: invert(0);
+}
+
 .left *,
 .right * {
 	color: inherit;
@@ -109,7 +141,7 @@ section > * {
 .right .large {
 	width: 75%;
 }
-.right > * {
+.right > *:not(.contact) {
 	width: clamp(32px, 75%, 128px);
 	margin: 5px;
 	padding: 3px;
@@ -126,11 +158,11 @@ section > * {
 .left:hover + .overlayLeft {
 	display: inline-block;
 }
-.right > *:not(.large):hover {
+.right > *:not(.large, .contact):hover {
 	background-color: var(--clr-primary-1);
 	color: var(--clr-primary-2);
 	border: 3px solid var(--clr-primary-2);
-	cursor: grab;
+	cursor: pointer;
 }
 h1 {
 	font-size: 3.5rem;
@@ -144,37 +176,22 @@ h2 {
 	text-transform: uppercase;
 	transition: 1s;
 }
-.knight {
+.chessPiece {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	margin-left: 70px;
-	margin-bottom: 90px;
-	width: 128px;
+	margin: 80px;
+	height: 128px;
+	width: auto;
 }
-.knightFlipped {
-	position: absolute;
+.flipped {
+	filter: invert(1);
+	transform: scale(-1);
+	-webkit-transform: scale(-1);
+	bottom: unset;
+	left: unset;
 	right: 0;
 	top: 0;
-	margin-right: 70px;
-	margin-top: 90px;
-	width: 128px;
-}
-.rook {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	margin-left: 80px;
-	margin-bottom: 80px;
-	width: 64px;
-}
-.rookFlipped {
-	position: absolute;
-	right: 0;
-	top: 0;
-	margin-right: 80px;
-	margin-top: 80px;
-	width: 64px;
 }
 .backButton {
 	position: absolute;
@@ -215,19 +232,58 @@ h2 {
 .right .projectLink:hover img {
 	filter: invert(0);
 }
-
 @media screen and (max-width: 655px) {
 	section {
 		width: 80%;
 	}
+	.staticLeft * {
+		font-size: 12px;
+	}
+	/* .mobileColumn {
+		flex-direction: column;
+		text-align: center;
+		justify-content: center;
+	} */
+	/* .mobileColumn > * {
+		background-color: var(--clr-primary-1);
+		color: var(--clr-primary-2);
+		width: auto;
+		display: flex;
+		text-align: center;
+		justify-content: center;
+		font-size: 0.8em;
+		padding: 0;
+	}
+	.staticLeft *,
+	.staticRight * {
+		width: 80%;
+	}
+	.mobileColumn > *:nth-child(even) {
+		background-color: var(--clr-primary-2);
+		color: var(--clr-primary-1);
+	} */
+	.chessPiece {
+		height: 64px;
+		margin: 40px;
+	}
+	.backButton {
+		margin: 40px;
+	}
 }
+
 @media screen and (max-width: 525px) {
 	.left,
 	.right {
-		flex-direction: column;
+		flex-direction: column wrap;
+		align-content: flex-end;
 	}
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 300px) {
+	h1 {
+		font-size: 1rem;
+	}
+}
+@media screen and (max-width: 600px) {
 	main {
 		height: calc(100vh - 64px);
 		width: calc(100vw - 64px);

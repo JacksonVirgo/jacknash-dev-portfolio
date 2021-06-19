@@ -1,0 +1,339 @@
+:root {
+	--clr-primary-1: #2d2d2d;
+	--clr-primary-2: #d2d2d2;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	color: var(--clr-primary-2);
+	text-decoration: none;
+}
+body {
+	background: linear-gradient(to right, var(--clr-primary-1) 50%, var(--clr-primary-2) 50%);
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	color: white;
+	font-family: sans-serif;
+	text-align: center;
+}
+
+img {
+	width: 16px;
+}
+main {
+	height: calc(100vh - 128px);
+	width: calc(100vw - 128px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: linear-gradient(to left, var(--clr-primary-1) 50%, var(--clr-primary-2) 50%);
+	align-items: center;
+	text-align: center;
+}
+main > header > * {
+	background-color: var(--clr-primary-2);
+	color: var(--clr-primary-1);
+}
+main > header > *:nth-child(odd) {
+	background-color: var(--clr-primary-1);
+	color: var(--clr-primary-2);
+}
+main > header > .interactive:hover {
+	background-color: var(--clr-primary-1);
+	color: var(--clr-primary-2);
+}
+main > header > .interactive:nth-child(odd):hover {
+	background-color: var(--clr-primary-2);
+	color: var(--clr-primary-1);
+}
+section {
+	width: 100%;
+	display: flex;
+	padding: 5px;
+}
+section > * {
+	flex-basis: 100%;
+	display: flex;
+}
+.staticLeft {
+	display: flex;
+	flex-flow: row-reverse;
+	color: var(--clr-primary-1);
+}
+.staticLeft * {
+	color: inherit;
+	margin-right: 10px;
+	margin-top: 10px;
+	width: 50%;
+}
+.staticRight {
+	display: flex;
+	flex-flow: row;
+	color: var(--clr-primary-2);
+}
+.staticRight * {
+	color: inherit;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 50%;
+}
+.right {
+	display: flex;
+	flex-flow: row;
+}
+.left {
+	display: flex;
+	flex-flow: row-reverse;
+}
+.left > *:not(.contact) {
+	width: clamp(32px, 75%, 128px);
+	padding: 3px;
+	margin: 5px;
+	background-color: var(--clr-primary-1);
+	color: var(--clr-primary-2);
+	border: 3px solid var(--clr-primary-1);
+}
+.left > *:not(.large, .contact):hover {
+	background-color: var(--clr-primary-2);
+	color: var(--clr-primary-1);
+	border: 3px solid var(--clr-primary-1);
+	cursor: pointer;
+}
+
+.contact {
+	width: 32px;
+	height: 32px;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contact img {
+	width: 100%;
+	height: 100%;
+}
+.contact:hover {
+	cursor: pointer;
+	background-color: var(--clr-primary-2);
+}
+.contact:hover img {
+	filter: invert(1);
+}
+.left .contact img {
+	filter: invert(1);
+}
+.left .contact:hover {
+	background-color: var(--clr-primary-1);
+}
+.left .contact:hover img {
+	filter: invert(0);
+}
+
+.left *,
+.right * {
+	color: inherit;
+}
+.left .large,
+.right .large {
+	width: 75%;
+}
+.right > *:not(.contact) {
+	width: clamp(32px, 75%, 128px);
+	margin: 5px;
+	padding: 3px;
+	background-color: var(--clr-primary-2);
+	color: var(--clr-primary-1);
+	border: 3px solid var(--clr-primary-2);
+}
+.overlayLeft {
+	width: 100%;
+	position: absolute;
+	background-color: red;
+	display: none;
+}
+.left:hover + .overlayLeft {
+	display: inline-block;
+}
+.right > *:not(.large, .contact):hover {
+	background-color: var(--clr-primary-1);
+	color: var(--clr-primary-2);
+	border: 3px solid var(--clr-primary-2);
+	cursor: pointer;
+}
+h1 {
+	font-size: 3.5rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: 0.5s;
+}
+h2 {
+	font-size: 2rem;
+	font-weight: 400;
+	text-transform: uppercase;
+	transition: 1s;
+}
+.chessPiece {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: 80px;
+	height: 128px;
+	width: auto;
+}
+.flipped {
+	filter: invert(1);
+	transform: scale(-1);
+	-webkit-transform: scale(-1);
+	bottom: unset;
+	left: unset;
+	right: 0;
+	top: 0;
+}
+.backButton {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 100px;
+	color: var(--clr-primary-1);
+	font-weight: 1000;
+}
+.left .projectLink {
+	display: inline-block;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid var(--clr-primary-2);
+}
+.left .projectLink:hover {
+	background-color: var(--clr-primary-2);
+	color: var(--clr-primary-1);
+	cursor: grab;
+}
+.left .projectLink:hover img {
+	filter: invert(1);
+}
+.right .projectLink {
+	display: inline-block;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid var(--clr-primary-1);
+}
+.right .projectLink:hover {
+	background-color: var(--clr-primary-1);
+	color: var(--clr-primary-2);
+	cursor: grab;
+}
+.right .projectLink img {
+	filter: invert(1);
+}
+.right .projectLink:hover img {
+	filter: invert(0);
+}
+@media screen and (max-width: 655px) {
+	.singleMain > header > h1 {
+		background: var(--clr-primary-2);
+		color: var(--clr-primary-1);
+	}
+	.singleMain > .backButton {
+		color: var(--clr-primary-2);
+	}
+	.singleMain .chessPiece {
+		filter: invert(1);
+	}
+	section {
+		width: 80%;
+	}
+	.staticLeft * {
+		font-size: 12px;
+	}
+	.mobileColumn {
+		flex-direction: column;
+		text-align: center;
+		justify-content: center;
+	}
+	.mobileColumn > * {
+		background-color: var(--clr-primary-1);
+		color: var(--clr-primary-2);
+		width: auto;
+		display: flex;
+		text-align: center;
+		justify-content: center;
+		font-size: 0.8em;
+		padding: 0;
+	}
+	.staticLeft *,
+	.staticRight * {
+		width: 80%;
+	}
+	.mobileColumn > *:nth-child(even) {
+		background-color: var(--clr-primary-1);
+		color: var(--clr-primary-2);
+	}
+	.chessPiece {
+		height: 64px;
+		margin: 40px;
+	}
+	.backButton {
+		margin: 40px;
+	}
+	.singleMain {
+		background: linear-gradient(to left, var(--clr-primary-1) 50%, var(--clr-primary-1) 50%);
+	}
+	.singleBody {
+		background: linear-gradient(to right, var(--clr-primary-2) 50%, var(--clr-primary-2) 50%);
+	}
+}
+.mobileColumn * {
+	margin-top: 8px;
+}
+
+@media screen and (max-width: 525px) {
+	.left,
+	.right {
+		flex-direction: column wrap;
+		align-content: flex-end;
+	}
+}
+@media screen and (max-width: 300px) {
+	h1 {
+		font-size: 1rem;
+	}
+}
+@media screen and (max-width: 655px) {
+	main {
+		height: calc(100vh - 64px);
+		width: calc(100vw - 64px);
+	}
+	h1 {
+		font-size: 2.25rem;
+	}
+	h2 {
+		font-size: 1.5rem;
+	}
+	.knight {
+		width: 64px;
+		margin-left: 32px;
+		margin-bottom: 40px;
+	}
+	.knightFlipped {
+		width: 64px;
+		margin-right: 32px;
+		margin-top: 40px;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	*,
+	::before,
+	::after {
+		animation-delay: -1ms !important;
+		animation-duration: 1ms !important;
+		animation-iteration-count: 1 !important;
+		background-attachment: initial !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0s !important;
+		transition-delay: 0s !important;
+	}
+}

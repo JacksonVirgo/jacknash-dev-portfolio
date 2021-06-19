@@ -13,7 +13,7 @@ class HorizontalButtonList extends React.Component {
 					switch (obj.type) {
 						case 'link':
 							result = (
-								<a href={obj.href}>
+								<a href={obj.href} target='_blank'>
 									<li>{obj.text}</li>
 								</a>
 							);

@@ -233,18 +233,28 @@ h2 {
 	filter: invert(0);
 }
 @media screen and (max-width: 655px) {
+	.singleMain > header > h1 {
+		background: var(--clr-primary-2);
+		color: var(--clr-primary-1);
+	}
+	.singleMain > .backButton {
+		color: var(--clr-primary-2);
+	}
+	.singleMain .chessPiece {
+		filter: invert(1);
+	}
 	section {
 		width: 80%;
 	}
 	.staticLeft * {
 		font-size: 12px;
 	}
-	/* .mobileColumn {
+	.mobileColumn {
 		flex-direction: column;
 		text-align: center;
 		justify-content: center;
-	} */
-	/* .mobileColumn > * {
+	}
+	.mobileColumn > * {
 		background-color: var(--clr-primary-1);
 		color: var(--clr-primary-2);
 		width: auto;
@@ -259,9 +269,9 @@ h2 {
 		width: 80%;
 	}
 	.mobileColumn > *:nth-child(even) {
-		background-color: var(--clr-primary-2);
-		color: var(--clr-primary-1);
-	} */
+		background-color: var(--clr-primary-1);
+		color: var(--clr-primary-2);
+	}
 	.chessPiece {
 		height: 64px;
 		margin: 40px;
@@ -269,6 +279,15 @@ h2 {
 	.backButton {
 		margin: 40px;
 	}
+	.singleMain {
+		background: linear-gradient(to left, var(--clr-primary-1) 50%, var(--clr-primary-1) 50%);
+	}
+	.singleBody {
+		background: linear-gradient(to right, var(--clr-primary-2) 50%, var(--clr-primary-2) 50%);
+	}
+}
+.mobileColumn * {
+	margin-top: 8px;
 }
 
 @media screen and (max-width: 525px) {
@@ -283,7 +302,7 @@ h2 {
 		font-size: 1rem;
 	}
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 655px) {
 	main {
 		height: calc(100vh - 64px);
 		width: calc(100vw - 64px);
